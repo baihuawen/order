@@ -11,7 +11,7 @@ public class OrderSingleRequest {
     private String TimeInForce;
     private String Side;
     private Double Price;
-    private Integer OrderQty;
+    private Double OrderQty;
     private String EndUserID;
     private Integer Managed;
 
@@ -63,11 +63,11 @@ public class OrderSingleRequest {
         Price = price;
     }
 
-    public Integer getOrderQty() {
+    public Double getOrderQty() {
         return OrderQty;
     }
 
-    public void setOrderQty(Integer orderQty) {
+    public void setOrderQty(Double orderQty) {
         OrderQty = orderQty;
     }
 

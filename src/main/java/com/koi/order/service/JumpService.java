@@ -60,10 +60,14 @@ public class JumpService {
      * @throws Exception
      */
     public OrderSingleResponse newOrderSingle(OrderSingleRequest request) throws Exception {
+        request.setSymbol("ETHUTC");
         request.setClOrdID(UUID.randomUUID().toString());
         request.setOrdType("2");
-        request.setSymbol("ETHUTC");
         request.setTimeInForce("4");
+        request.setSide("1");
+        request.setPrice(1.0);
+        request.setOrderQty(2.0);
+        request.setEndUserID("hzhou-test");
         request.setManaged(0);
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/newOrderSingle"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
