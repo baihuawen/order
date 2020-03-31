@@ -60,14 +60,13 @@ public class JumpService {
      * @throws Exception
      */
     public OrderSingleResponse newOrderSingle(OrderSingleRequest request) throws Exception {
-        streamingEvents();
         request.setClOrdID(UUID.randomUUID().toString());
         request.setOrdType("2");
+        request.setSymbol("ETHUTC");
         request.setTimeInForce("4");
         request.setManaged(0);
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/newOrderSingle"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
-//        logout();
         log.info("====" + response);
         return GSON.fromJson(response, OrderSingleResponse.class);
     }
@@ -79,16 +78,14 @@ public class JumpService {
      * @return
      * @throws Exception
      */
-    public MarketDataResponse orderStatus(OrderStatusRequest request) throws Exception {
-//        streamingEvents();
+    public OrderStatusResponse orderStatus(OrderStatusRequest request) throws Exception {
         List<String> list = new ArrayList<>();
         list.add("1829312hj124ygh1i24h1oi4");
         request.setLstOrderIds(list);
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/orderStatus"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
-//        logout();
         log.info("====" + response);
-        return GSON.fromJson(response, MarketDataResponse.class);
+        return GSON.fromJson(response, OrderStatusResponse.class);
     }
 
     /**
@@ -98,17 +95,15 @@ public class JumpService {
      * @return
      * @throws Exception
      */
-    public OrderStatusResponse marketDataRequest(MarketDataRequest request) throws Exception {
-//        streamingEvents();
+    public MarketDataResponse marketDataRequest(MarketDataRequest request) throws Exception {
         request.setSubscriptionRequestType("1");
         log.info("request====" + request.toString());
         log.info("json====" + GSON.toJson(request));
 
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/marketDataRequest"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
-//        logout();
         log.info("====" + response);
-        return GSON.fromJson(response, OrderStatusResponse.class);
+        return GSON.fromJson(response, MarketDataResponse.class);
     }
 
     /**
