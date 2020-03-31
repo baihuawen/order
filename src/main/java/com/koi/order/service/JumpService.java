@@ -11,6 +11,8 @@ import com.koi.order.util.SignatureUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -25,6 +27,15 @@ public class JumpService {
     //指定的APIKEY：JLQD login name used to administer API secrets
     public final static String KEY = "hzhou-test";
     public final static String SECRET = "b79e2ca388f6d8df7ef9a0de1a3ec4e2";
+
+    public static void main(String[] args) {
+        MarketDataRequest request = new MarketDataRequest();
+        List<String> a = new ArrayList<>();
+        a.add("a");
+        request.setSubscriptionRequestType("1");
+        request.setSymbols(a);
+        System.out.println(GSON.toJson(request));
+    }
 
     /**
      * 弃用，访问报价，使用marketDataRequest
@@ -86,6 +97,9 @@ public class JumpService {
      */
     public OrderStatusResponse marketDataRequest(MarketDataRequest request) throws Exception {
 //        streamingEvents();
+        log.info("request====" + request.toString());
+        log.info("json====" + GSON.toJson(request));
+
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/marketDataRequest"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
 //        logout();

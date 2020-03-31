@@ -25,4 +25,12 @@ public class MarketDataRequest {
     public void setSymbols(List<String> symbols) {
         this.symbols = symbols;
     }
+
+    @Override
+    public String toString() {
+        return "MarketDataRequest{" +
+                "SubscriptionRequestType='" + SubscriptionRequestType + '\'' +
+                ", symbols=" + symbols +
+                '}';
+    }
 }
