@@ -25,20 +25,20 @@ public class HttpUtil {
      * @return
      * @throws IOException
      */
-    public static String doGet(String url) throws IOException {
-        return doGet(url, null, null);
+    public static void doGet(String url) throws IOException {
+        doGet(url, null, null);
     }
 
 
-    public static String doGet(String url, Map<String, String> params) throws IOException {
-        return doGet(url, params, null);
+    public static void doGet(String url, Map<String, String> params) throws IOException {
+        doGet(url, params, null);
     }
 
-    public static String doGet(String url, String[] headers) throws IOException {
-        return doGet(url, null, headers);
+    public static void doGet(String url, String[] headers) throws IOException {
+        doGet(url, null, headers);
     }
 
-    public static String doGet(String url, Map<String, String> params, String[] headers) throws IOException {
+    public static void doGet(String url, Map<String, String> params, String[] headers) throws IOException {
         StringBuilder sb = new StringBuilder(url);
         if (params != null && params.keySet().size() > 0) {
             boolean firstFlag = true;
@@ -63,7 +63,7 @@ public class HttpUtil {
         }
 
         Request request = builder.url(sb.toString()).build();
-        return execute(request);
+        executeGet(request);
     }
 
     /**
@@ -99,5 +99,10 @@ public class HttpUtil {
             }
         }
         return "";
+    }
+
+    private static void executeGet(Request request) throws IOException {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.newCall(request).execute();
     }
 }
