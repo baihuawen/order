@@ -16,7 +16,7 @@ import java.util.Map;
 public class HttpUtil {
 
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private static final OkHttpClient okHttpClient = new OkHttpClient();
+
 
     /**
      * 统一okhttp的get请求
@@ -86,6 +86,7 @@ public class HttpUtil {
     }
 
     private static String execute(Request request) throws IOException {
+        OkHttpClient okHttpClient = new OkHttpClient();
         Response response = null;
         try {
             response = okHttpClient.newCall(request).execute();
