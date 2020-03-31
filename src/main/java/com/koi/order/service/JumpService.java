@@ -57,6 +57,7 @@ public class JumpService {
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/newOrderSingle"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
 //        logout();
+        log.info("====" + response);
         return GSON.fromJson(response, OrderSingleResponse.class);
     }
 
@@ -72,6 +73,7 @@ public class JumpService {
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/orderStatus"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
 //        logout();
+        log.info("====" + response);
         return GSON.fromJson(response, MarketDataResponse.class);
     }
 
@@ -87,6 +89,7 @@ public class JumpService {
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/marketDataRequest"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
 //        logout();
+        log.info("====" + response);
         return GSON.fromJson(response, OrderStatusResponse.class);
     }
 
