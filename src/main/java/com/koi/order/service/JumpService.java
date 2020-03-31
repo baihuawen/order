@@ -97,6 +97,7 @@ public class JumpService {
      */
     public OrderStatusResponse marketDataRequest(MarketDataRequest request) throws Exception {
 //        streamingEvents();
+        request.setSubscriptionRequestType("1");
         log.info("request====" + request.toString());
         log.info("json====" + GSON.toJson(request));
 
