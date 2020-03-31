@@ -65,8 +65,8 @@ public class JumpService {
         request.setOrdType("2");
         request.setTimeInForce("4");
         request.setSide("1");
-        request.setPrice(1.0);
-        request.setOrderQty(2.0);
+        request.setPrice(1.2);
+        request.setOrderQty(2.2);
         request.setEndUserID("hzhou-test");
         request.setManaged(0);
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/newOrderSingle"
