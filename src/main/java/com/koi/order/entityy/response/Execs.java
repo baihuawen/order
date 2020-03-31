@@ -4,7 +4,6 @@ package com.koi.order.entityy.response;
  * @Author fitz.bai
  * @Date 2020-03-29 17:18
  */
-@Data
 public class Execs {
     private String BeginString;
     private String MsgType;

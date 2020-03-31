@@ -8,7 +8,6 @@ import java.util.Map;
  * @Author fitz.bai
  * @Date 2020-03-29 17:12
  */
-@Data
 public class OrderStatusResponse {
     private String BeginString;
     private String MsgType;

@@ -6,7 +6,6 @@ import lombok.Data;
  * @Author fitz.bai
  * @Date 2020-03-29 17:11
  */
-@Data
 public class QuoteResponse {
     private String MsgType;
     private String timestamp;
