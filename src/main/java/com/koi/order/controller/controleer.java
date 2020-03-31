@@ -23,7 +23,7 @@ public class controleer {
     JumpService jumpService;
 
     @PostMapping("/quote")
-    public OrderStatusResponse quote(@RequestBody MarketDataRequest marketDataRequest) throws Exception {
+    public MarketDataResponse quote(@RequestBody MarketDataRequest marketDataRequest) throws Exception {
 
         return jumpService.marketDataRequest(marketDataRequest);
     }
@@ -34,7 +34,7 @@ public class controleer {
     }
 
     @PostMapping("/get")
-    public MarketDataResponse get(@RequestBody OrderStatusRequest request) throws Exception {
+    public OrderStatusResponse get(@RequestBody OrderStatusRequest request) throws Exception {
         return jumpService.orderStatus(request);
     }
 
