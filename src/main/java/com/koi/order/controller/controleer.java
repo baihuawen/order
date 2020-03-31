@@ -34,12 +34,17 @@ public class controleer {
     }
 
     @PostMapping("/get")
-    public MarketDataResponse get(OrderStatusRequest request) throws Exception {
+    public MarketDataResponse get(@RequestBody OrderStatusRequest request) throws Exception {
         return jumpService.orderStatus(request);
     }
 
     @GetMapping("/stream")
     public void stream() throws Exception {
         jumpService.streamingEvents();
+    }
+
+    @GetMapping("/logout")
+    public void logout() throws Exception {
+        jumpService.logout();
     }
 }

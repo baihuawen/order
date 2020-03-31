@@ -81,6 +81,9 @@ public class JumpService {
      */
     public MarketDataResponse orderStatus(OrderStatusRequest request) throws Exception {
 //        streamingEvents();
+        List<String> list = new ArrayList<>();
+        list.add("1829312hj124ygh1i24h1oi4");
+        request.setLstOrderIds(list);
         String response = HttpUtil.doPostJson("https://uat.jumpliquidity.com/v2/orderStatus"
                 + getRequestParms(request, KEY, SECRET), GSON.toJson(request));
 //        logout();
@@ -131,7 +134,7 @@ public class JumpService {
      *
      * @throws Exception
      */
-    void logout() throws Exception {
+    public void logout() throws Exception {
         QuoteRequest request = new QuoteRequest();
         request.setSymbol("ETCUSD");
         request.setSide("1");
