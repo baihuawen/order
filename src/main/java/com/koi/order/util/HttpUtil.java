@@ -77,6 +77,7 @@ public class HttpUtil {
      * @throws IOException
      */
     public static String doPostJson(String url, String json) throws IOException {
+        log.info("json---" + json);
         return exectePost(url, json, JSON);
     }
 
