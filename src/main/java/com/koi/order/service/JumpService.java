@@ -104,8 +104,8 @@ public class JumpService {
 
         log.info(("https://uat.jumpliquidity.com/v2/streamingEvents"
                 + getRequestParms(request, KEY, SECRET)));
-        log.info(HttpUtil.doGet("https://uat.jumpliquidity.com/v2/streamingEvents"
-                + getRequestParms(request, KEY, SECRET)));
+        HttpUtil.doGet("https://uat.jumpliquidity.com/v2/streamingEvents"
+                + getRequestParms(request, KEY, SECRET));
     }
 
     /**
