@@ -1,9 +1,12 @@
 package com.koi.order.entityy.response;
 
+import lombok.Data;
+
 /**
  * @Author fitz.bai
  * @Date 2020-03-29 17:12
  */
+@Data
 public class OrderSingleResponse {
     private String MsgType;
     private String timestamp;
