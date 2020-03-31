@@ -1,7 +1,9 @@
 package com.koi.order.util;
 
+import com.koi.order.aop.HttpLogger;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
+import okhttp3.logging.HttpLoggingInterceptor;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -87,7 +89,9 @@ public class HttpUtil {
     }
 
     private static String execute(Request request) throws IOException {
-        OkHttpClient okHttpClient = new OkHttpClient();
+        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(new HttpLogger());
+        logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().addNetworkInterceptor(logInterceptor).build();
         Response response = null;
         try {
             response = okHttpClient.newCall(request).execute();
