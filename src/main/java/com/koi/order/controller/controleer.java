@@ -8,6 +8,7 @@ import com.koi.order.entityy.response.OrderSingleResponse;
 import com.koi.order.entityy.response.OrderStatusResponse;
 import com.koi.order.service.JumpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,5 +36,10 @@ public class controleer {
     @PostMapping("/get")
     public MarketDataResponse get(OrderStatusRequest request) throws Exception {
         return jumpService.orderStatus(request);
+    }
+
+    @GetMapping("/stream")
+    public void stream() throws Exception {
+        jumpService.streamingEvents();
     }
 }
