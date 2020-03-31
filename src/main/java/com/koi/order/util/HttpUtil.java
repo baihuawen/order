@@ -80,6 +80,7 @@ public class HttpUtil {
 
     private static String exectePost(String url, String data, MediaType contentType) throws IOException {
         RequestBody requestBody = RequestBody.create(contentType, data);
+        log.info("requestBody====" + requestBody.toString());
         Request request = new Request.Builder().url(url).post(requestBody).build();
 
         return execute(request);
